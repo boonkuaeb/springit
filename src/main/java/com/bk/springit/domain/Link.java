@@ -1,8 +1,8 @@
-package com.bk.springit.model;
+package com.bk.springit.domain;
 
-import lombok.EqualsAndHashCode;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.NonNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,16 +10,17 @@ import javax.persistence.Id;
 
 @Entity
 @NoArgsConstructor
-@ToString
-@EqualsAndHashCode
-public class Comment {
+@Data
+public class Link {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String body;
 
-    //private Link link;
+    @NonNull
+    private String title;
 
-
+    @NonNull
+    private String url;
+    // comments
 }
