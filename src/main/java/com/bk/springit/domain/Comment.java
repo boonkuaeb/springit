@@ -1,10 +1,13 @@
 package com.bk.springit.domain;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Data
@@ -18,5 +21,7 @@ public class Comment {
     @NonNull
     private String body;
 
-//    private Link link;
+    // Link
+    @ManyToOne
+    private Link link;
 }

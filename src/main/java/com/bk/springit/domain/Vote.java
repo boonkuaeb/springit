@@ -3,11 +3,11 @@ package com.bk.springit.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Data
@@ -21,6 +21,7 @@ public class Vote {
     @NonNull
     private int vote;
 //    private User user;
-//    @NonNull
-//    private Link link;
+    @NonNull
+    @ManyToOne
+    private Link link;
 }
