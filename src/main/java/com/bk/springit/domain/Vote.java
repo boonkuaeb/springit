@@ -21,6 +21,6 @@ public class Vote {
     @NonNull
     private int vote;
 //    private User user;
-    @NonNull
-    private Link link;
+//    @NonNull
+//    private Link link;
 }

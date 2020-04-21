@@ -17,5 +17,6 @@ public class Comment {
 
     @NonNull
     private String body;
-    //private Link link;
+
+//    private Link link;
 }
