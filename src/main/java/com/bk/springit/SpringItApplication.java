@@ -21,7 +21,7 @@ public class SpringItApplication {
 	}
 
 
-	@Bean
+//	@Bean
 	CommandLineRunner runLoadDatabase(LinkRepository linkRepository, CommentRepository commentRepository)
 	{
 		return args -> {
