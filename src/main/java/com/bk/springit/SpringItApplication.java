@@ -10,6 +10,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+import java.util.ListIterator;
+
 @SpringBootApplication
 public class SpringItApplication {
 
@@ -33,6 +36,16 @@ public class SpringItApplication {
 			commentRepository.save(comment);
 			link.addComment(comment);
 
+
+			System.out.println("-----------------------------------------");
+			Link firstLink = linkRepository.findByTitle("Command Runner in Spring Boot");
+			System.out.println(firstLink.getTitle());
+			System.out.println("------------------------------------------");
+			List<Link> links = linkRepository.findAllByTitleLikeOrderByCreationDateDesc("%Spring%");
+			for (Link nextLink : links) {
+				System.out.println("========>"+nextLink.getTitle());
+			}
+			System.out.println("End");
 		};
 	}
 }
