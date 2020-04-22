@@ -4,10 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -15,7 +12,7 @@ import javax.persistence.ManyToOne;
 public class Comment extends Auditable{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NonNull
@@ -23,5 +20,11 @@ public class Comment extends Auditable{
 
     // Link
     @ManyToOne
+    @NonNull
     private Link link;
+
+    public Comment(@NonNull String body, @NonNull Link link) {
+        this.body = body;
+        this.link = link;
+    }
 }

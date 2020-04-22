@@ -4,10 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +14,7 @@ import java.util.List;
 public class Link extends Auditable{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NonNull
@@ -34,4 +31,13 @@ public class Link extends Auditable{
     @OneToMany(mappedBy = "link")
     private List<Vote> votes = new ArrayList<>();
 
+    public Link(@NonNull String title, @NonNull String url) {
+        this.title = title;
+        this.url = url;
+    }
+
+    public void addComment(Comment comment)
+    {
+        comments.add(comment);
+    }
 }
